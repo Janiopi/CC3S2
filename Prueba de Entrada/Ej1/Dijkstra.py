@@ -1,13 +1,21 @@
 class Graph:
+   
+    
     def __init__(self, size):   #Creacion del grafo a partir del numero de vertices
         self.adj_matrix = [[0] * size for _ in range(size)]
         self.size = size
         self.vertex_data = [''] * size
 
-    def add_edge(self, u, v, weight):
+   
+    def add_edge(self, u, v, weight, directed):
         if 0 <= u < self.size and 0 <= v < self.size: #Verificando que los vertices de la arista se encuentren en el rango admitido
-            self.adj_matrix[u][v] = weight
-            self.adj_matrix[v][u] = weight  # Se considera grafos no direccionados
+            
+            if(directed):
+                self.adj_matrix[u][v] = weight # En caso que sea una arista direccionada, de u a v
+            else:
+                self.adj_matrix[u][v] = weight  #En caso que no sea una arista direccionada 
+                self.adj_matrix[v][u] = weight  
+                       
 
     def add_vertex_data(self, vertex, data):  
         if 0 <= vertex < self.size:            #Verificando que el vertice se encuentre en el rango admitido
