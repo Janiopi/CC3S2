@@ -21,8 +21,8 @@ g.add_edge(2, 1, 2)  # C - B, weight 2
 g.add_edge(1, 5, 2)  # B - F, weight 2
 g.add_edge(6, 5, 5)  # G - F, weight 5
 
-# Dijkstra's algorithm from D to all vertices
-print("\nAlgoritmo de Dijkstra, tomando como vertice inicial D:")
-distances = g.dijkstra('D')
+# Algoritmo de Dijkstra desde A hacia los demas vertices
+print("\nAlgoritmo de Dijkstra, tomando como vertice inicial A:")
+distances = g.dijkstra('A')
 for i, d in enumerate(distances):
-    print(f"Distancia de D hacia {g.vertex_data[i]}: {d}")
+    print(f"Distancia de A hacia {g.vertex_data[i]}: {d}")
